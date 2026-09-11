@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace WinFormProviderCatalogReader
 {
-    public class Services
+    public class ApiClientService
     {
         public async Task<string> GetCatalogBySearchParameter(string apiKey, string searchParameter, int numberItems = 1)
         {
