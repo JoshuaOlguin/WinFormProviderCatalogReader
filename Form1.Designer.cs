@@ -39,8 +39,9 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeCatalogExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // 
             this.cmbProvider.FormattingEnabled = true;
             this.cmbProvider.Location = new System.Drawing.Point(78, 62);
-            this.cmbProvider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbProvider.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProvider.Name = "cmbProvider";
             this.cmbProvider.Size = new System.Drawing.Size(198, 21);
             this.cmbProvider.TabIndex = 1;
@@ -77,7 +78,7 @@
             // txtBoxSearchParameter
             // 
             this.txtBoxSearchParameter.Location = new System.Drawing.Point(78, 121);
-            this.txtBoxSearchParameter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxSearchParameter.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxSearchParameter.Name = "txtBoxSearchParameter";
             this.txtBoxSearchParameter.Size = new System.Drawing.Size(198, 20);
             this.txtBoxSearchParameter.TabIndex = 3;
@@ -106,7 +107,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(16, 165);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(50, 31);
             this.btnSearch.TabIndex = 6;
@@ -117,7 +118,7 @@
             // btnGenerateFile
             // 
             this.btnGenerateFile.Location = new System.Drawing.Point(96, 165);
-            this.btnGenerateFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerateFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerateFile.Name = "btnGenerateFile";
             this.btnGenerateFile.Size = new System.Drawing.Size(101, 31);
             this.btnGenerateFile.TabIndex = 7;
@@ -128,7 +129,7 @@
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(225, 165);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(50, 31);
             this.btnReset.TabIndex = 8;
@@ -138,7 +139,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuracionToolStripMenuItem});
+            this.configuracionToolStripMenuItem,
+            this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(291, 24);
@@ -148,16 +150,10 @@
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.fuenteToolStripMenuItem});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             // 
             // fuenteToolStripMenuItem
             // 
@@ -165,6 +161,21 @@
             this.fuenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fuenteToolStripMenuItem.Text = "Fuente";
             this.fuenteToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeCatalogExportToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeCatalogExportToolStripMenuItem
+            // 
+            this.acercaDeCatalogExportToolStripMenuItem.Name = "acercaDeCatalogExportToolStripMenuItem";
+            this.acercaDeCatalogExportToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.acercaDeCatalogExportToolStripMenuItem.Text = "Acerca de CatalogExport";
+            this.acercaDeCatalogExportToolStripMenuItem.Click += new System.EventHandler(this.acercaDeCatalogExportToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -182,9 +193,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CatalogExport";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -206,8 +217,9 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fuenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeCatalogExportToolStripMenuItem;
     }
 }
 
