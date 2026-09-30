@@ -133,7 +133,7 @@ namespace WinFormProviderCatalogReader.Utilities
             }
 
             // Format price columns
-            worksheet.Columns(1, 7).Style.NumberFormat.Format = "$#,##0.00";
+            worksheet.Columns(4, 10).Style.NumberFormat.Format = "$#,##0.00";
 
             // Adjust columns
             worksheet.Columns().AdjustToContents();

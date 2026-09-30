@@ -20,17 +20,18 @@ namespace WinFormProviderCatalogReader.Utilities
         {
             return productResponse.Items.Select(p =>
             {
-                decimal distributorPrice = 0m;
+                decimal purchasePrice = 0m;
                 if (!string.IsNullOrWhiteSpace(p.Price))
                 {
-                    decimal.TryParse(p.Price, NumberStyles.Currency | NumberStyles.Number, CultureInfo.InvariantCulture, out distributorPrice);
+                    decimal.TryParse(p.Price, NumberStyles.Currency | NumberStyles.Number, CultureInfo.InvariantCulture, out purchasePrice);
                 }
 
                 return new Item
                 {
                     Code = "SYS",
+                    AlternativeCode = p.ProductCode,
                     Name = p.Title,
-                    DistributorPrice = distributorPrice,
+                    PurchasePrice = purchasePrice,
                     Image = p.ImageLink
                 };
             }).ToList();
