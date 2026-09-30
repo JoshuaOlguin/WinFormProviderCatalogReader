@@ -31,7 +31,7 @@ namespace WinFormProviderCatalogReader
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtBoxSearchParameter.Text))
+            if (!String.IsNullOrEmpty(cmbProvider.Text) && !String.IsNullOrEmpty(txtBoxSearchParameter.Text))
             {
                 ApiClientService client = new ApiClientService();
 
@@ -54,7 +54,7 @@ namespace WinFormProviderCatalogReader
             }
             else
             {
-                MessageBox.Show("Por favor, introduce el nombre del artículo que deseas buscar.", "Error Operacion invalida.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, Selecciona un proveedor y/o introduce el nombre del artículo que deseas buscar.", "Error Operacion invalida.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -102,6 +102,22 @@ namespace WinFormProviderCatalogReader
             {
                 ApplyFont(ctrl, newFont);
             }
+        }
+
+        private void acercaDeCatalogExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string description = "CatalogExport\n\n" +
+            "Versión: " + Application.ProductVersion + "\n\n" +
+            "CatalogExport es una aplicación de escritorio que permite " +
+            "consultar productos del proveedor Fixoem mediante una búsqueda " +
+            "por nombre o parámetro.\n\n" +
+            "La aplicación obtiene la información del catálogo, muestra " +
+            "el resultado de la consulta y permite exportar los productos " +
+            "a un archivo de Excel para facilitar su administración y uso posterior.\n\n" +
+            "También incluye opciones para personalizar la fuente de la " +
+            "interfaz y guardar las preferencias del usuario.";
+
+            MessageBox.Show(description, "Acerca de CatalogExport", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
