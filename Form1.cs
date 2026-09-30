@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Drawing;
 using WinFormProviderCatalogReader.Dto;
 using WinFormProviderCatalogReader.Utilities;
 
@@ -24,6 +25,8 @@ namespace WinFormProviderCatalogReader
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbProvider.Items.Add("Fixoem");
+            System.Drawing.Font savedFont = new System.Drawing.Font(Properties.Settings.Default.FontName, (float)Properties.Settings.Default.FontSize);
+            ApplyFont(this, savedFont);
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -59,10 +62,13 @@ namespace WinFormProviderCatalogReader
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
+                string defaultFileName = $"{txtBoxSearchParameter.Text}";
                 saveFileDialog.Title = "Select a folder";
-                saveFileDialog.Filter = "All files (*.*)|*.*";
-                saveFileDialog.FileName = $"{txtBoxSearchParameter.Text}.xlsx";
+                saveFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+                saveFileDialog.FileName = defaultFileName;
                 saveFileDialog.CheckPathExists = true;
+                saveFileDialog.DefaultExt = "xlsx";
+                saveFileDialog.AddExtension = true;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -72,6 +78,29 @@ namespace WinFormProviderCatalogReader
 
                     MessageBox.Show("Archivo excel generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                ApplyFont(this, fontDialog.Font);
+                Properties.Settings.Default.FontName = fontDialog.Font.FontFamily.Name;
+                Properties.Settings.Default.FontSize = fontDialog.Font.Size;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void ApplyFont(Control control, System.Drawing.Font newFont)
+        {
+            control.Font = newFont;
+
+            foreach (Control ctrl in control.Controls)
+            {
+                ApplyFont(ctrl, newFont);
             }
         }
     }
